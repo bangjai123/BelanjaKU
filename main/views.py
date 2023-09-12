@@ -5,7 +5,7 @@ def show_main(request):
         'name': 'Name',
         'amount': 'Amount',
         'price': 'Price/Item',
-        'descripstion' : 'Descriptions'
+        'description' : 'Descriptions'
     }
 
     return render(request, "main.html", context)
