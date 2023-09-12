@@ -1,12 +1,47 @@
-<h1>BelanjaKu</h1>
-<h3>Zaidan Naufal Ilmi</h3>
-<h3>2206081761</h3>
-<h3>PBP F</h3>
-<h4>Nama Barang:</h4>
-<p>{{ nama }}</p> 
-<h4>Jumlah:</h4>
-<p>{{ jumlah }}</p>
-<h4>Harga:</h4>
-<p>{{ harga }}<p>
-<h4>Total:</h4>
-<p>{{ total }}<p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+
+<body>
+<h1 style="color:blue" align="center"> BelanjaKu</h1>
+<h4 style="color:red" align="right">Nama: Zaidan Naufal Ilmi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>NPM: 2206081761&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Kelas: PBP F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+<hr size = "5"color = "black">
+
+<table style="width:100%">
+  <tr>
+    <th>{{name}}</th>
+    <th>{{amount}}</th> 
+    <th>{{price}}</th>
+    <th>{{description}}</th>
+  </tr>
+  <tr>
+    <td>Susu</td>
+    <td>15</td>
+    <td>Rp20.000,00</td>
+    <td>Susu kotak ukuran 1 liter rasa coklat</td>
+  </tr>
+  <tr>
+    <td>Telur</td>
+    <td>12</td>
+    <td>Rp15.000,00</td>
+    <td>Satu lusin telur ayam</td>
+
+  </tr>
+  <tr>
+    <td> ... </td>
+    <td> ... </td>
+    <td> ... </td>
+    <td> ... </td>
+
+  </tr>
+</table>
+
+</body>
+</html>
