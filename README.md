@@ -1,4 +1,9 @@
+Nama: Zaidan Naufal Ilmi
+NPM: 2206081761
+Kelas: PBP F
+
 Link app: https://belanjaku-apps.adaptable.app/main/
+
 Jawaban:
 1. Pertama-tama, saya membuat sebuah direktori baru bernama BelanjaKu yang akan menampung proyek dan aplikasinya. Direktori ini berada di github dan pc saya dan keduanya terhubung (setelah melalui berbagai konfigurasi).
 
