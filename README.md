@@ -61,9 +61,10 @@ urlpatterns = [
 
   Melakukan deployment ke adaptable saya lakukan dengan signup menggunakan akun github saya dan memilih repositori yang akan saya deploy (dalam hal ini, BelanjaKu). Setelah itu, saya hanya perlu mengikuti langkah yang ditunjukkan oleh adaptablenya serta mengisi beberapa konfigurasi. Setelah menunggu beberapa saat, aplikasi saya telah terdeploy dan dapat diakses melalui  (https://belanjaku-apps.adaptable.app/main/).
 
-2. ![gambar bagan - Copy](https://github.com/bangjai123/BelanjaKu/assets/120235144/bb85b21a-d9d3-4251-beda-9ae2712c2c90)
+2.
+![gambar bagan - Copy](https://github.com/bangjai123/BelanjaKu/assets/120235144/bb85b21a-d9d3-4251-beda-9ae2712c2c90)
 
-Sumber
+Request yang diberikan user akan diproses melalui urls.py untuk dihubungkan pada aplikasi main melalui views.py. Main akan menghubungi mode untuk mengatur data dan memintanya ke database apabila diperlukan. Selain itu, views.py akan memilih template html yang akan digunakan. view tersebut akan ditampilkan kepada user.
 
 3.  Virtual environment dibutuhkan untuk mengisolasi package serta dependencies dari aplikasi sehingga tidak bertabrakan dengan versi lain yang telah ada di komputer. Kita bisa saja membuatnya tanpa menggunakan virtual environment. Akan tetapi, akan terdapat kekurangan apabila dibandingkan dengan menggunakan virtual environment. Kekurangannya adalah dependensi antar proyek dapat salah mempengaruhi dan menyulitkan kita untuk melakukan manajemen proyek.
    
@@ -76,4 +77,6 @@ c. MVT (Model-View-Template) juga merupakan salah satu pola desain arsitektur. M
 
 Ketiga pola pengembangan aplikasi di atas sebenarnya memiliki tujuan yang sama, yaitu membagi pengembangan ke dalam beberapa komponen sehingga dapat memudahkan proses pengembangan aplikasi, terutama dalam pembagian tugas. Akan tetapi, ketiganya memiliki perbedaan, di antaranya adalah sebagai berikut.
 
-1. 
+1. View: pada MVC, view berfungsi untuk menangani tampilan data dan interaksi pengguna. View menggambarkan informasi kepada pengguna dan menerima input. Dalam MVT, view juga berfungsi untuk tampilan data dan interkasi pengguna, sedangkan MVVM view lebih berfokus pada tampilan visual dan kurang dalam logika aplikasi.
+2. Interaksi antar komponennya. Pada MVC, controller berfungsi untuk mengatur interaksi antara model dan view. Dalam MVT, template dan view bersama dalam mengontrol tampilan dan interaksi pengguna. Dalam MVT, model akan berfungsi dalam mengolah data. Dalam MVVM, ViewMode berfungsi untuk menatur interaksi antara model dan view serta memungkinkan pengikatan data untuk sinkronisasi tampilan dengan model secara otomatis.
+3. Perbedaan ketiganya paling utama terletak pada bagaimana diaturnya tampilan dan logika aplikasi serta interaksi antar komponennya. Penggunaannya akan bergantung pada kebutuhan. MVT lebih banyak digunakan dalam pengembangan web menggunakan teknologi seperti Django, sedangkan MVVM lebih banyak digunakan dalam pengembangan aplikasi berbasis platform seperti WPF.
