@@ -61,6 +61,19 @@ urlpatterns = [
 
   Melakukan deployment ke adaptable saya lakukan dengan signup menggunakan akun github saya dan memilih repositori yang akan saya deploy (dalam hal ini, BelanjaKu). Setelah itu, saya hanya perlu mengikuti langkah yang ditunjukkan oleh adaptablenya serta mengisi beberapa konfigurasi. Setelah menunggu beberapa saat, aplikasi saya telah terdeploy dan dapat diakses melalui  (https://belanjaku-apps.adaptable.app/main/).
 
-2. 
+2. ![gambar bagan - Copy](https://github.com/bangjai123/BelanjaKu/assets/120235144/bb85b21a-d9d3-4251-beda-9ae2712c2c90)
+
+Sumber
+
 3.  Virtual environment dibutuhkan untuk mengisolasi package serta dependencies dari aplikasi sehingga tidak bertabrakan dengan versi lain yang telah ada di komputer. Kita bisa saja membuatnya tanpa menggunakan virtual environment. Akan tetapi, akan terdapat kekurangan apabila dibandingkan dengan menggunakan virtual environment. Kekurangannya adalah dependensi antar proyek dapat salah mempengaruhi dan menyulitkan kita untuk melakukan manajemen proyek.
-4.  
+   
+4.
+a. MVC (Model-View-Controller) adalah salah satu pola desain arsitektur software yang umum digunakan. Pola desain arsitektur ini membagi pengembangan software menjadi tiga komponen, yaitu model, view, dan controller. Model berfungsi untuk mengelola data dan logika bisnis aplikasi. View berfungsi untuk menampilkan data dari model kepada pengguna. Controller berfungsi untuk menjadi perantara antara model dan view.
+
+b. MVVM (Model-View-ViewModel) adalah salah satu pola desain arsitektur software berbasis GUI. Pola dasar arsitektur ini memisahkan pengembangan menjadi tiga komponen utama, yaitu model, view, dan viewmodel. model berfungsi untuk mengelola data dan logika bisnis aplikasi. View berfungsi sebagai UI yang menampilkan informasi kepada pengguna serta menerima input yang dimasukkan pengguna. Viewmodel berfungsi sebagai perantara antara model dan view dengan mengambil data dari model dan mempersiapkannya untuk ditampilkan di view.
+
+c. MVT (Model-View-Template) juga merupakan salah satu pola desain arsitektur. MVT membagi pengembangan menjadi tiga komponen yaitu model, view, dan template. Model berfungsi untuk mengelola data da logika bisnis dari aplikasi. View berfungsi untuk menangani tampilan data dan interaksi dengan pengguna. Template memisahkan tampilan dari logika dalam aplikasi.
+
+Ketiga pola pengembangan aplikasi di atas sebenarnya memiliki tujuan yang sama, yaitu membagi pengembangan ke dalam beberapa komponen sehingga dapat memudahkan proses pengembangan aplikasi, terutama dalam pembagian tugas. Akan tetapi, ketiganya memiliki perbedaan, di antaranya adalah sebagai berikut.
+
+1. 
