@@ -1,47 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
-</head>
+{% extends 'base.html' %}
 
-<body>
+{% block content %}
 <h1 style="color:blue" align="center"> BelanjaKu</h1>
-<h4 style="color:red" align="right">Nama: Zaidan Naufal Ilmi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>NPM: 2206081761&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Kelas: PBP F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+<h4 style="color:red" align="right">Nama: {{name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>NPM: {{npm}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Kelas: {{class}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
 <hr size = "5"color = "black">
 
 <table style="width:100%">
   <tr>
-    <th>{{name}}</th>
-    <th>{{amount}}</th> 
-    <th>{{price}}</th>
-    <th>{{description}}</th>
+    <th>Nama</th>
+    <th>Jumlah</th> 
+    <th>Price/Item</th>
+    <th>Deskripsi</th>
   </tr>
+  {% for item in items%}
   <tr>
-    <td>Susu</td>
-    <td>15</td>
-    <td>Rp20.000,00</td>
-    <td>Susu kotak ukuran 1 liter rasa coklat</td>
+    <td>{{item.name}}</td>
+    <td>{{item.amount}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.description}}</td>
   </tr>
-  <tr>
-    <td>Telur</td>
-    <td>12</td>
-    <td>Rp15.000,00</td>
-    <td>Satu lusin telur ayam</td>
-
-  </tr>
-  <tr>
-    <td> ... </td>
-    <td> ... </td>
-    <td> ... </td>
-    <td> ... </td>
-
-  </tr>
+  {% endfor %}
 </table>
 
-</body>
-</html>
+<br />
+<a href="{% url 'main:create_item' %}">
+    <div class="center">
+      <button class="button button1">Tambah Barang</button>
+    </div>
+</a>
+{% endblock content %}
