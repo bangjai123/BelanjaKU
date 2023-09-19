@@ -5,12 +5,13 @@ from django.urls import reverse
 from main.models import Item
 from django.http import HttpResponse
 from django.core import serializers
-
+from django.contrib import messages
 def show_main(request):
     items = Item.objects.all()
 
     context = {
         'name' : 'Zaidan Naufal Ilmi',
+        'jumlah_item' : items.count,
         'npm' : '2206081761',
         'class' : 'PBP F',
         'items' : items
