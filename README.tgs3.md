@@ -81,6 +81,13 @@ Selain itu, urls.py perlu ditambahi path ke urlpatterns agar data dapat dibaca. 
 selain itu, perlu dilakukan import fungsi-fungsi tadi di url.py:
 from main.views import show_main, create_item, show_json, show_xml, show_json_by_id,show_xml_by_id
 
+5. Berikut ini adalah screenshot dari akses kelima url di atas menggunakan postman. Secara berurutan: html, json, xml, xml by id (1), json by id (1):
+
+![image](https://github.com/bangjai123/BelanjaKu/assets/120235144/ad556b6a-29f9-4fe7-bf27-29e8fb000231)
+![image](https://github.com/bangjai123/BelanjaKu/assets/120235144/24cb3397-dbbb-4c94-ba8e-fa9174210ab6)
+![image](https://github.com/bangjai123/BelanjaKu/assets/120235144/e9a796ed-a068-4d9e-bb7e-c84cf98b32ca)
+![image](https://github.com/bangjai123/BelanjaKu/assets/120235144/4db56b87-2fec-4fbb-981b-e7967c8fb652)
+![image](https://github.com/bangjai123/BelanjaKu/assets/120235144/5c74831a-1b8a-4eea-8c90-2cd85c35ed41)
 
 
 
