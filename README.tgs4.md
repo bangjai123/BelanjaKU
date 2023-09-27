@@ -63,5 +63,11 @@ Kelas: PBP F
           items = Item.objects.filter(user=request.user)
        3. Simpan semua perubaha dengan makemigrations dan migrate
 
-      6. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi:
-         1. 
+   6. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi:
+         1. pada views.py:
+            -  import HttpResponseRedirect, reverse, dan datetime
+            -  menambahkan cookie dengan menambahkan last_login pada fungsi                login_user
+            -  menambahkan variable last_login padan show_main
+            -  mengubah fungsi logout_user untuk menghapus last_login
+         2. Pada main.html:
+            agar informasi dapat ditampilkan, masukkan teks untuk                       menampilkannya pada main.html
