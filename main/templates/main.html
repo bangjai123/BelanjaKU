@@ -16,8 +16,24 @@
   </tr>
   {% for item in items%}
   <tr>
-    <td>{{item.name}}</td>
-    <td>{{item.amount}}</td>
+    <td>{{item.name}}
+      <a href="{% url 'main:hapus_item' id=item.id %}"
+       <button>
+        <button style="float:right;">Hapus Item</button>
+      </button>
+      </a>
+    </td>
+    <td>{{item.amount}}
+      <a href="{% url 'main:kurangi_item' id=item.id %}"
+        <button>
+          <button style="float:right;">-</button>
+        </button>
+      </a>
+      <a href="{% url 'main:tambah_item' id=item.id %}"
+        <button>
+          <button style="float:right;">+</button>
+        </button>
+      </a>
     <td>{{item.price}}</td>
     <td>{{item.description}}</td>
   </tr>
