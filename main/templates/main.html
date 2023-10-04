@@ -1,9 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BelanjaKu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="{% url 'main:logout' %}">
+              <button style="border-radius: 12px;">
+                  Logout
+              </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <h1 style="color:blue" align="center"> BelanjaKu</h1>
 <h4 style="color:red" align="right">Nama Pengguna: {{name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
 <h3 style="color:black" align="left">Kamu menyimpan {{jumlah_item}} item pada aplikasi ini</h3>
+
 
 <hr size = "5"color = "black">
 
