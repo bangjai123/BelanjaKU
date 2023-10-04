@@ -40,12 +40,9 @@
                                 {% csrf_token %}  
                                 <table>  
                                     {{ form.as_table }}  
-                                    <tr>  
-                                        <td></td>
-                                        <td><input type="submit" name="submit" value="Daftar"style= "border-radius: 8px;border:none;color: rgb(255, 255, 255);margin-bottom: 5px;background-color: rgb(62, 143, 220);width: 100%;"/></td>  
-                                    </tr>  
                                 </table>  
                             </form>
+                            <input type="submit" name="submit" value="Daftar"style= "border-radius: 4px;border:none;color: rgb(255, 255, 255);margin-bottom: 5px;background-color: rgb(62, 143, 220);width: 100%;height:35px;margin-top:10px"/></td>
 
                         {% if messages %}  
                             <ul>   
