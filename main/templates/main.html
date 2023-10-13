@@ -101,7 +101,6 @@
   async function refreshProducts() {
       document.getElementById("list-example").innerHTML = ""
       const items = await getProducts()
-      console.log(items[0])
       let htmlString = ``
       items.forEach((item) => {
           htmlString += `\n<a class="list-group-item"  href="#${item.fields.name}"><strong>${item.fields.name}</strong></a>`
