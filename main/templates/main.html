@@ -27,32 +27,15 @@
 
 <div class="row" style="max-height: 60vh;width: 100%;position: relative;padding-left: 5vh;padding-top: 2vh;">
   <div class="col-4">
-    <div id="list-example" class="list-group" style="max-height: 45vh;overflow-y: auto;">
-      {%for item in items%}
-      <a class="list-group-item"  href="#{{item.name}}"><strong>{{item.name}}</strong></a>
-      {% endfor %}
+    <div id="list-example" class="list-group" style="max-height: 35vh;overflow-y: auto;">
     </div>
-      <div style="padding-top: 2vh;">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="padding-top: 2vh;border-radius: 6px;border: none;background-color: rgb(50, 59, 218);color: white;height: 5vh;width: 100%;height: 100%;vertical-align: text-bottom;"><strong>Tambah item baru</strong></button> 
-      </div>
+    <div style="padding-top: 2vh;">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="padding-top: 2vh;border-radius: 6px;border: none;background-color: rgb(50, 59, 218);color: white;height: 5vh;width: 100%;height: 100%;vertical-align: text-bottom;"><strong>Tambah item baru</strong></button> 
+    </div>
   </div>
 
   <div class="col-8" style="overflow-y: hidden;">
-    <div data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy" tabindex="0" style="overflow-y: hidden;height: 60vh; scroll-behavior: smooth;">
-      {%for item in items%}
-      <div class="card" id="{{item.name}}" style="height: 60vh;max-height: 60vh;">
-        <h4 style="padding:2vh;font-size: 24;">{{item.name}}</h4>
-        <p style="padding-left: 2vh;">harga: Rp.{{item.price}} <br> jumlah: {{item.amount}}</p>
-        <div class="card" style="margin-left: 2vh;overflow-y:auto;margin-right: 2vh;height: 30vh;max-height: 30vh;">
-          <p style="padding:2vh;">{{item.description}}</p>
-        </div>
-        <div class="btn-group" style="width: 30vh;padding: 2vh;">
-          <a href="{% url 'main:tambah_item' id=item.id %}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Tambah</a>
-          <a href="{% url 'main:hapus_item' id=item.id %}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Hapus</a>
-          <a href="{% url 'main:kurangi_item' id=item.id %}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Kurang</a>
-        </div>
-      </div>
-      {% endfor %}
+    <div id="scrollable"data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy" tabindex="0" style="overflow-y: hidden;height: 60vh; scroll-behavior: smooth;">
     </div>
   </div>
 </div>
@@ -77,11 +60,11 @@
                   </div>
                   <div class="mb-3">
                     <label for="amount" class="col-form-label">Jumlah:</label>
-                    <input type="number" class="form-control" id="amount" name="amount"></input>
-                  </div>
+                    <input class="form-control" id="description" name="amount"></input>
+                </div>
                   <div class="mb-3">
-                      <label for="description" class="col-form-label">Descripsi:</label>
-                      <textarea class="form-control" id="description" name="deskription"></textarea>
+                      <label for="description" class="col-form-label">Deskripsi:</label>
+                      <textarea class="form-control" id="description" name="description"></textarea>
                   </div>
               </form>
           </div>
@@ -92,6 +75,7 @@
       </div>
   </div>
 </div>
+<p style="padding-top: 0vh;padding-left: 5vh;font-size: 10px;">Oleh: {{ nama }}<br>{{npm}}<br>{{class}}<p style="padding-top: 0vh;padding-right: 5vh;font-size: 10px;"align=right>Terakhir login: {{last_login}}</p></p>
 
 <script>
   async function getProducts() {
@@ -100,23 +84,49 @@
 
   async function refreshProducts() {
       document.getElementById("list-example").innerHTML = ""
-      const items = await getProducts()
-      let htmlString = ``
-      items.forEach((item) => {
-          htmlString += `\n<a class="list-group-item"  href="#${item.fields.name}"><strong>${item.fields.name}</strong></a>`
-      })
-      
+      document.getElementById("scrollable").innerHTML=""
+        const items = await getProducts()
+        let htmlBerikutnya =``
+        let htmlString = ``
+        items.forEach((item) => {
+            htmlString += `\n<a class="list-group-item"  href="#${item.fields.name}"><strong>${item.fields.name}</strong></a>` 
+        })
+        items.forEach((item)=>{
+          htmlBerikutnya += `\n
+          <div class="card" id="${item.fields.name}" style="height: 60vh;max-height: 60vh;">
+            <h4 style="padding:2vh;font-size: 24;">${item.fields.name}</h4>
+            <p style="padding-left: 2vh;">harga: Rp.${item.fields.price} <br> jumlah: ${item.fields.amount}</p>
+            <div class="card" style="margin-left: 2vh;overflow-y:auto;margin-right: 2vh;height: 30vh;max-height: 30vh;">
+              <p style="padding:2vh;">${item.fields.description}</p>
+            </div>
+            <div class="btn-group" style="width: 30vh;padding: 2vh;">
+              <a href="main:tambah_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Tambah</a>
+              <a href="main:hapus_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Hapus</a>
+              <a href="main:kurangi_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Kurang</a>
+            </div>
+          </div>`
+        })    
       document.getElementById("list-example").innerHTML = htmlString
+      document.getElementById("scrollable").innerHTML = htmlBerikutnya
       function addProduct() {
           fetch("{% url 'main:add_product_ajax' %}", {
-              method: "POST",
+              method: 'POST',
               body: new FormData(document.querySelector('#form'))
           }).then(refreshProducts)
 
           document.getElementById("form").reset()
           return false
       }
-      document.getElementById("button_add").onclick = addProduct
+      function nulisKontol1(){
+        console.log("tombol kontol 1")
+      }
+      function nulisKontol2(){
+        console.log("tombol kontol 2")
+      }
+      function nulisKontol3(){
+        console.log("tombol kontol 3")
+      }
+      document.getElementById("button_add").onclick = addProduct      
   }
 
   refreshProducts()

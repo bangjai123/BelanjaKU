@@ -126,10 +126,10 @@ def add_product_ajax(request):
         description = request.POST.get("description")
         user = request.user
 
-        new_product = Item(name=name, amount=amount,price=price, description=description, user=user)
+        new_product = Item(name=name,price=price, amount=amount,description=description, user=user)
         new_product.save()
 
         return HttpResponse(b"CREATED", status=201)
 
-    return HttpResponseNotFound()
+    return HttpResponseNotFound(b"kok masuk sinis")
 
