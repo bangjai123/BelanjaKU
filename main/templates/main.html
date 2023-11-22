@@ -117,7 +117,7 @@
       document.getElementById("scrollable").innerHTML = htmlBerikutnya
       document.getElementById("tulisan").innerHTML = htmlbaru
       function addProduct() {
-          fetch("{% url 'main:/add_product_ajax/' %}", {
+          fetch("{% url 'main:add_product_ajax' %}", {
               method: 'POST',
               body: new FormData(document.querySelector('#form'))
           }).then(refreshProducts)
@@ -125,10 +125,6 @@
           document.getElementById("form").reset()
           return false
       }
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b489baef9f7d610b9df11dbb94a5e8e6fd5905f
       document.getElementById("button_add").onclick = addProduct      
   }
 
