@@ -146,6 +146,7 @@ def create_product_flutter(request):
             user = request.user,
             name = data["name"],
             price = int(data["price"]),
+            amount = int(data["amount"]),
             description = data["description"]
         )
 
