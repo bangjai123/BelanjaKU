@@ -131,5 +131,5 @@ def add_product_ajax(request):
 
         return HttpResponse(b"CREATED", status=201)
 
-    return HttpResponseNotFound(b"kok masuk sinis")
+    return HttpResponseNotFound()
 

@@ -23,7 +23,7 @@
     </div>
   </nav>
 </div>
-<h4 style="color:rgb(50, 59, 218);padding-left: 5vh;padding-top: 6vh;" align="left">Kamu menyimpan {{jumlah_item}} item pada aplikasi ini</h3>
+<h4 id ="tulisan" style="color:rgb(50, 59, 218);padding-left: 5vh;padding-top: 6vh;" align="left"></h4>
 
 <div class="row" style="max-height: 60vh;width: 100%;position: relative;padding-left: 5vh;padding-top: 2vh;">
   <div class="col-4">
@@ -85,10 +85,15 @@
   async function refreshProducts() {
       document.getElementById("list-example").innerHTML = ""
       document.getElementById("scrollable").innerHTML=""
+      document.getElementById("tulisan").innerHTML = ""
         const items = await getProducts()
         let htmlBerikutnya =``
+        let htmlbaru =``
         let htmlString = ``
+        var hitung = 0
+
         items.forEach((item) => {
+            hitung+=1
             htmlString += `\n<a class="list-group-item"  href="#${item.fields.name}"><strong>${item.fields.name}</strong></a>` 
         })
         items.forEach((item)=>{
@@ -100,16 +105,19 @@
               <p style="padding:2vh;">${item.fields.description}</p>
             </div>
             <div class="btn-group" style="width: 30vh;padding: 2vh;">
-              <a href="main:tambah_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Tambah</a>
-              <a href="main:hapus_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Hapus</a>
-              <a href="main:kurangi_item/${item.pk}" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Kurang</a>
+              <a href="main:tambah_item/${item.pk}" rel="noreferrer" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Tambah</a>
+              <a href="main:hapus_item/${item.pk}" rel="noreferrer" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Hapus</a>
+              <a href="main:kurangi_item/${item.pk}" rel="noreferrer" style= "background-color: rgb(50, 59, 218)"class="btn btn-primary">Kurang</a>
             </div>
           </div>`
-        })    
+        })
+
+        htmlbaru+=`<strong>Anda menyimpan ${hitung} pada aplikasi ini</strong>`    
       document.getElementById("list-example").innerHTML = htmlString
       document.getElementById("scrollable").innerHTML = htmlBerikutnya
+      document.getElementById("tulisan").innerHTML = htmlbaru
       function addProduct() {
-          fetch("{% url 'main:add_product_ajax' %}", {
+          fetch("{% url 'main:/add_product_ajax/' %}", {
               method: 'POST',
               body: new FormData(document.querySelector('#form'))
           }).then(refreshProducts)
@@ -117,15 +125,7 @@
           document.getElementById("form").reset()
           return false
       }
-      function nulisKontol1(){
-        console.log("tombol kontol 1")
-      }
-      function nulisKontol2(){
-        console.log("tombol kontol 2")
-      }
-      function nulisKontol3(){
-        console.log("tombol kontol 3")
-      }
+
       document.getElementById("button_add").onclick = addProduct      
   }
 
