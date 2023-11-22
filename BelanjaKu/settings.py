@@ -28,6 +28,7 @@ PRODUCTION = env.bool('PRODUCTION', False)
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS=["https://bangjai-ganteng.up.railway.app", "https://belanjaku.up.railway.app"]
 
 
 # Application definition
